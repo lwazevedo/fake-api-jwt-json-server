@@ -1,22 +1,48 @@
 {
-    "users": [
-      {
-        "id": 1,
-        "name": "bruno",
-        "email": "bruno@gmail.com",
-        "password": "bruno1234"
-      },
-      {
-        "id": 2,
-        "name": "techie",
-        "email": "techie@gmail.com",
-        "password": "techie1234"
-      },
-      {
-        "id": 3,
-        "name": "nilson",
-        "email": "nilson@gmail.com",
-        "password": "nilson1234"
-      }
-    ]
-  }
+  "users": [
+    {
+      "id": 1,
+      "name": "bruno",
+      "email": "bruno@gmail.com",
+      "password": "bruno1234",
+      "roles": [
+        {
+          "page": "home",
+          "location": "/",
+          "read": true,
+          "create": true,
+          "edit": true
+        },
+        {
+          "page": "dash",
+          "location": "/dash",
+          "read": true,
+          "create": true,
+          "edit": true
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "techie",
+      "email": "techie@gmail.com",
+      "password": "techie1234",
+      "roles": [
+        {
+          "page": "home",
+          "location": "/",
+          "read": true,
+          "create": true,
+          "edit": true
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "nilson",
+      "email": "nilson@gmail.com",
+      "password": "nilson1234",
+      "roles": []
+    }
+  ]
+}

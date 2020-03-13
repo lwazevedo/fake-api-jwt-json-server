@@ -32,7 +32,7 @@ function isAuthenticated({ email, password }) {
 
 
 server.post('/auth/login', (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
   const { email, password } = req.body
   if (isAuthenticated({ email, password }) === false) {
     const status = 401
@@ -41,7 +41,7 @@ server.post('/auth/login', (req, res) => {
     return
   }
   const access_token = createToken({ email, password })
-  const user = userdb.users.filter(user => user.email === email && user.password === password);
+  const user = userdb.users.filter(user => user.email === email && user.password === password)[0];
   res.status(200).json({ access_token, user })
 })
 
