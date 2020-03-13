@@ -7,8 +7,8 @@ const server = jsonServer.create()
 const router = jsonServer.router('./database.json')
 const userdb = JSON.parse(fs.readFileSync('./users.json', 'UTF-8'))
 
-//server.use(bodyParser.urlencoded({extended: true}))
-//server.use(bodyParser.json())
+server.use(bodyParser.urlencoded({extended: true}))
+server.use(bodyParser.json())
 server.use(jsonServer.defaults());
 
 const SECRET_KEY = '123456789'
@@ -32,6 +32,7 @@ function isAuthenticated({ email, password }) {
 
 
 server.post('/auth/login', (req, res) => {
+  console.log(req.body);
   const { email, password } = req.body
   if (isAuthenticated({ email, password }) === false) {
     const status = 401
@@ -64,5 +65,5 @@ server.use(/^(?!\/auth).*$/, (req, res, next) => {
 server.use(router)
 
 server.listen(3000, () => {
-  console.log('Run Auth API Server')
+  console.log('Run Auth API Server', 'port 3000')
 })
